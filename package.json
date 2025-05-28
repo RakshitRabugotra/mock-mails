@@ -1,10 +1,18 @@
 {
   "name": "mock-mails",
   "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "json-server --watch db.json --host 0.0.0.0 --port $PORT"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "json-server": "^0.17.0"
+    "express": "^5.1.0",
+    "lowdb": "^7.0.1"
   }
 }
