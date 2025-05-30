@@ -1,0 +1,26 @@
+name: Scheduled Mail Fetch
+
+on:
+  schedule:
+    - cron: '*/14 * * * *' # Every 14 minutes
+  workflow_dispatch: # Optional: allows manual trigger
+
+jobs:
+  fetch-mails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Make fetch script executable
+        run: chmod +x fetch-mails.sh
+
+      - name: Run fetch-mails.sh
+        run: ./fetch-mails.sh
+
+      - name: Upload fetched mails as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mails-responses
+          path: responses/
